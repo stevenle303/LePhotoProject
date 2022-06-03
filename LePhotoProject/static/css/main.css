@@ -1,0 +1,150 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: url(https://wallpapercave.com/wp/wp3360223.png) no-repeat;
+  background-size: cover;
+}
+
+div.pic {
+  margin: 0;
+  padding: 5%;
+  background: url(https://i.pinimg.com/736x/55/74/54/557454f9d762c6b6c9efdaec66b4dbb9.jpg) no-repeat;
+  background-size: cover;
+}
+
+.box {
+  width: 450px;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 50px;
+  text-align: center;
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  color: white;
+  font-family: 'Century Gothic', sans-serif;
+}
+
+.box-img {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+
+.box h1 {
+  font-size: 40px;
+  letter-spacing: 4px;
+  font-weight: 100;
+}
+
+.box h5 {
+  font-size: 20px;
+  letter-spacing: 3px;
+  font-weight: 100;
+}
+
+.box p {
+  text-align: justify;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.box li {
+  display: inline-block;
+  margin: 6px;
+  list-style: none;
+}
+
+.box li a {
+  color: white;
+  text-decoration: none;
+  font-size: 60px;
+  transition: all ease-in-out 250ms;
+}
+
+.box li a:hover {
+  color: #b9b9b9;
+}
+
+/* Header */
+.header {
+  width: 100%;
+  height: 80px;
+  background-color: #101010;
+}
+
+.innerHeader {
+  width: 1000px;
+  /* This is the inner width of the content inside of your header (80%, etc) */
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+  background-color:red;
+}
+
+.logoContainer {
+  display: table;
+  height: 100%;
+  float: left;
+}
+
+.logoContainer h1{
+  color: white;
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+  font-family: 'Monsterrat';
+  font-size: 32px;
+  font-weight: 200;
+}
+
+header .logo div {
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+header .logo img {
+  height: 50px;
+  margin-top: 5px;
+  /* Optical alignment of the logo */
+}
+
+header nav {
+  float: right;
+  height: 100%;
+}
+
+header nav li {
+  display: table;
+  height: 100%;
+  float: left;
+  margin-right: 30px;
+}
+
+header nav li:last-of-type {
+  margin-right: 0;
+}
+
+header nav span {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+header nav a {
+  color: #101010;
+}
+
+header nav .button {
+  background-color: #1ab26b;
+  /* This HEX is the color of the button */
+  color: #FFF;
+  padding: 10px 20px;
+  border-radius: 4px;
+}
+
+header nav .button:hover {
+  filter: brightness(1.05);
+}
