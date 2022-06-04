@@ -1,24 +1,25 @@
 body {
   margin: 0;
   padding: 0;
-  background: url(https://wallpapercave.com/wp/wp3360223.png) no-repeat;
   background-size: cover;
+  background-color: #485461;
+  background-image: linear-gradient(315deg, #485461 0%, #28313b 74%);
 }
 
 div.pic {
-  margin: 0;
   padding: 5%;
-  background: url(https://i.pinimg.com/736x/55/74/54/557454f9d762c6b6c9efdaec66b4dbb9.jpg) no-repeat;
+  background-color: #000000;
+  background-image: linear-gradient(147deg, #000000 0%, #04619f 74%);
   background-size: cover;
 }
 
 .box {
   width: 450px;
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.1);
   padding: 50px;
   text-align: center;
   margin: auto;
-  margin-top: 5%;
+  margin-top: 10%;
   margin-bottom: 5%;
   color: white;
   font-family: 'Century Gothic', sans-serif;
@@ -70,18 +71,20 @@ ul {
 
 /* Header */
 .header {
+  position: fixed;
+  top: 0;
   width: 100%;
   height: 80px;
-  background-color: #101010;
+  background-color: white;
 }
 
 .innerHeader {
-  width: 1000px;
+  width: 70%;
   /* This is the inner width of the content inside of your header (80%, etc) */
   height: 100%;
   display: block;
   margin: 0 auto;
-  background-color:red;
+  background-color: rgb(255, 255, 255);
 }
 
 .logoContainer {
@@ -91,60 +94,54 @@ ul {
 }
 
 .logoContainer h1{
-  color: white;
+  color: #696969;
   height: 100%;
   display: table-cell;
-  vertical-align: middle;
-  font-family: 'Monsterrat';
   font-size: 32px;
-  font-weight: 200;
+  font-weight: bold;
+  padding: 20px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-header .logo div {
-  height: 100%;
-  display: table-cell;
-  vertical-align: middle;
-}
 
-header .logo img {
-  height: 50px;
-  margin-top: 5px;
-  /* Optical alignment of the logo */
-}
-
-header nav {
+.navigation {
   float: right;
   height: 100%;
 }
 
-header nav li {
-  display: table;
+.navigation a{
+  text-decoration: none;
+  display: block;
+  position: relative;
+  color: black;
+  padding:.3em 0;
+}
+
+.navigation li{
+  display: inline-block;
+  margin: 0 0.5em;
   height: 100%;
-  float: left;
-  margin-right: 30px;
+  padding: 20px;
+  color: white;
+  font-size: 20px;
 }
 
-header nav li:last-of-type {
-  margin-right: 0;
+
+.navigation a:hover {
+  color: #c69f73;
 }
 
-header nav span {
-  display: table-cell;
-  vertical-align: middle;
+.navigation a:hover:before {
+  left: 0;
+  width: 100%;
 }
-
-header nav a {
-  color: #101010;
-}
-
-header nav .button {
-  background-color: #1ab26b;
-  /* This HEX is the color of the button */
-  color: #FFF;
-  padding: 10px 20px;
-  border-radius: 4px;
-}
-
-header nav .button:hover {
-  filter: brightness(1.05);
+.navigation a:before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: .5px;
+  background-color: #c69f73;
+  bottom: calc(-1px);
+  right: 0;
+  transition: all 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
