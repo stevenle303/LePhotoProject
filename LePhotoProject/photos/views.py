@@ -3,6 +3,10 @@ from .models import Category, Photo
 # Create your views here.
 
 
+def loginPage(request):
+    return render(request, 'photos/login_register.html')
+
+    
 def gallery(request):
     category = request.GET.get('category')
     if category == None:
