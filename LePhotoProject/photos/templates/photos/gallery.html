@@ -18,144 +18,138 @@
             height: 200px;
             object-fit: cover;
         }
+
         .list-group-item a {
             text-decoration: none;
             color: black;
         }
-        .row h3{
+
+        .row h3 {
             margin-left: 50px;
             color: white;
         }
-        
     </style>
 
 </head>
+
 <body>
         <!-- Start of the header -->
-    <header>
-        <div class = "header">
-            <div class="innerHeader">
-                <div class="logoContainer">
-                    <div>
-                        <h1>Steven Le</h1>
+        <header>
+            <div class="header">
+                <div class="innerHeader">
+                    <div class="logoContainer">
+                        <div>
+                            <h1>Steven Le</h1>
+                        </div>
                     </div>
-                </div>
-    
-                <ul class ="navigation">
-                    <li><a href="{% url 'gallery' %}">Home</a></li>
-                    <li><a href="">Blog</a></li>
-                    <li><a href="">Contact</a></li>
 
-                </ul>
-            </div>
-        </div>    
-    </header>
+                    <ul class="navigation">
+                        <li><a href="{% url 'gallery' %}">Home</a></li>
+                        <li><a href="">Blog</a></li>
+                        <li><a href="">Contact</a></li>
 
-    <div class="box">
-        <img src="https://i.kym-cdn.com/entries/icons/facebook/000/034/772/Untitled-1.jpg" alt="profile pic" class="box-img">
-        <h1>Steven Le</h1>
-        <h5>
-            Web Devloper - Web Designer</h5>
-        <p>
-            A :) web developer is a programmer who specializes in, or is specifically engaged in, the development of World
-            Wide Web applications, or applications that are run over HTTP from a web server to a web browser.</p>
-        <ul>
-            <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
-            <li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
-        </ul>
-</body>
-</div>
-<body>
-    <div class="pic">
-    <div class="container">
-        <div class="row">
-            {% if request.user.is_authenticated %}
-                    <h3>Hello, {{request.user}}</h3>
-                {% endif %}
-            <div class="col-md-3">
-                
-                <div class="card">
-                    <img class="card-img-top"
-                        src="https://i.kym-cdn.com/entries/icons/facebook/000/034/772/Untitled-1.jpg"
-                        alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">About:</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the card's content.</p>
-                    </div>
-                    
-                    <div class="card-header">
-                        Categories
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <a href="{% url 'gallery' %}">All</a>
-                        </li>
-                        {% for category in categories %}
-                        <li class="list-group-item">
-                            <a href="{% url 'gallery' %}?category={{category.name}}">
-                                {{category.name}}
-                            </a>
-
-                        </li>
-                        {% endfor %}
-
-
-                        <li class="list-group-item">
-                            <a href="{% url 'add' %}" class="btn btn-outline-info btn-sm" m1>Add Photos</a>
-                        </li>
                     </ul>
-                    <div class="card-body">
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
                 </div>
             </div>
+        </header>
+
+    <div class="pic">
 
 
-            <div class="col-md-9">
-                <div class="row">
-                    {% for photo in photos %}
-                    <div class="col-md-4">
-                        <div class="card my-2">
-                            <img class="image-thumbnail" src="{{photo.image.url}}" alt="Card image cap">
+        <div class="container">
+            <div class="row">
+                {% if request.user.is_authenticated %}
+                <h3>Hello, {{request.user}}</h3>
+                {% endif %}
+                <div class="col-md-3">
 
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <medium><strong>Category: {{photo.category.name}}</medium></strong>
-                                </div>
-                                <form class='deleteForm' method='POST' action='/delete/{{photo.id}}'>
-                                    {% csrf_token %}
-                                    <div class="text-center">
-                                        <a href="{% url 'photo' photo.id %}"
-                                            class="btn btn-outline-dark btn-sm m-1">View</a>
-                                        OR
-                                        <button type="submit" class='btn btn-outline-danger btn-sm m-1'
-                                            onclick="return confirm('Are you sure you want to delete the photo?');">DEL</button>
-                                </form>
-                            </div>
+                    <div class="card">
+                        <img class="card-img-top"
+                            src="https://i.kym-cdn.com/entries/icons/facebook/000/034/772/Untitled-1.jpg"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">About:</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                                of
+                                the card's content.</p>
+                        </div>
+
+                        <div class="card-header">
+                            Categories
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <a href="{% url 'gallery' %}">All</a>
+                            </li>
+                            {% for category in categories %}
+                            <li class="list-group-item">
+                                <a href="{% url 'gallery' %}?category={{category.name}}">
+                                    {{category.name}}
+                                </a>
+
+                            </li>
+                            {% endfor %}
+
+
+                            <li class="list-group-item">
+                                <a href="{% url 'add' %}" class="btn btn-outline-info btn-sm" m1>Add Photos</a>
+                                <a href="{% url 'logout' %}" class="btn btn-outline-info btn-sm" m1>Logout</a>
+                                <a href="{% url 'register' %}" class="btn btn-outline-info btn-sm" m1>Register</a>
+                            </li>
+                        </ul>
+                        <div class="card-body">
+                            <a href="#" class="card-link">Card link</a>
+                            <a href="#" class="card-link">Another link</a>
                         </div>
                     </div>
                 </div>
-                {% empty %}
-                <h3>No photos...</h3>
-                {% endfor %}
+
+
+                <div class="col-md-9">
+                    <div class="row">
+                        {% for photo in photos %}
+                        <div class="col-md-4">
+                            <div class="card my-2">
+                                <img class="image-thumbnail" src="{{photo.image.url}}" alt="Card image cap">
+
+                                <div class="card-body">
+                                    <div class="text-center">
+                                        <medium><strong>Category: {{photo.category.name}}</medium></strong>
+                                    </div>
+                                    <form class='deleteForm' method='POST' action='/delete/{{photo.id}}'>
+                                        {% csrf_token %}
+                                        <div class="text-center">
+                                            <a href="{% url 'photo' photo.id %}"
+                                                class="btn btn-outline-dark btn-sm m-1">View</a>
+                                            OR
+                                            <button type="submit" class='btn btn-outline-danger btn-sm m-1'
+                                                onclick="return confirm('Are you sure you want to delete the photo?');">DEL</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% empty %}
+                    <h3>No photos...</h3>
+                    {% endfor %}
                 </div>
 
             </div>
         </div>
     </div>
     </div>
-        <!-- Copyrights -->
+
+
+
+    <!-- Copyrights -->
+    <footer>
         <div class="bg-light py-4">
             <div class="container text-center">
-              <p class="text-muted mb-0 py-2">© 2022 Steven Le. All rights reserved.</p>
+                <p class="text-muted mb-0 py-2">© 2022 Steven Le. All rights reserved.</p>
             </div>
-          </div>
-        </footer>
-        <!-- End -->
-
+        </div>
+    </footer>
+    <!-- End -->
 </body>
 
 </html>

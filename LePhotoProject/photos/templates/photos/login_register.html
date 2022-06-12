@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 
@@ -6,7 +7,9 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Login/Regiser</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <!-- CSS only -->
+    <script src="https://use.fontawesome.com/d1341f9b7a.js"></script>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -15,24 +18,87 @@
         .login--wrapper {
             display: flex;
             align-items: center;
-            height: 80vh;
+            height: 50vh;
+            width: 100%;
             justify-content: center;
+ 
         }
 
         .form {
             width: 600px;
         }
+
+        .image-thumbnail {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .list-group-item a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .row h3 {
+            margin-left: 50px;
+            color: white;
+        }
+
+        .loginPage{
+            background-color: #aecad6;
+            background-image: linear-gradient(315deg, #aecad6 0%, #b8d3fe 74%);
+
+        }
+
     </style>
 </head>
 
 <body>
+    <!-- Start of the header -->
+    <header>
+        <div class="header">
+            <div class="innerHeader">
+                <div class="logoContainer">
+                    <div>
+                        <h1>Steven Le</h1>
+                    </div>
+                </div>
 
+                <ul class="navigation">
+                    <li><a href="{% url 'gallery' %}">Home</a></li>
+                    <li><a href="">Blog</a></li>
+                    <li><a href="">Contact</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="box">
+        <img src="https://i.kym-cdn.com/entries/icons/facebook/000/034/772/Untitled-1.jpg" alt="profile pic"
+            class="box-img">
+        <h1>Steven Le</h1>
+        <h5>
+            Web Devloper - Web Designer</h5>
+        <p>
+            A :) web developer is a programmer who specializes in, or is specifically engaged in, the development of
+            World
+            Wide Web applications, or applications that are run over HTTP from a web server to a web browser.</p>
+        <ul>
+            <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
+        </ul>
+
+    </div>
+
+<div class="loginPage">
     <div class="container">
 
         <div class="login--wrapper">
 
-
-            <form class="form">
+            {% if page == 'login' %}
+            <form method='post' class="form">
+                {% csrf_token %}
                 <h1>Login</h1>
                 <h4>Login to view photos and share with your friends</h4>
                 <div class="mb-3">
@@ -46,7 +112,33 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary">Submit</button>
+                <p>Don't have an account <a href="{% url 'register' %}">Register</a></p>
             </form>
+            {% else %}
+            <form method="post">
+                <h1>Register</h1>
+                {% csrf_token %}
+                {% for field in form %}
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">{{field.label}}</label>
+                    {{field}}
+                </div>
+                {% endfor %}
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <p>Already have an account <a href="{% url 'login' %}">Login</a></p>
+            </form>
+            {% endif%}
+            </div>
+        </div>
+   </div>         
+    <!-- Copyrights -->
+    <footer>
+        <div class="bg-light py-4">
+            <div class="container text-center">
+                <p class="text-muted mb-0 py-2">© 2022 Steven Le. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+        <!-- End -->
 </body>
-
 </html>
