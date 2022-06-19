@@ -146,3 +146,10 @@ CLOUDINARY_STORAGE = {
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = '05887f493dae0b'
+EMAIL_HOST_PASSWORD = '2ce9468e0c9d71'
+EMAIL_PORT = '2525'
+
+

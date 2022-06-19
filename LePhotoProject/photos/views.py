@@ -1,9 +1,13 @@
-import re
+
 from django.shortcuts import render, redirect
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 from .models import Category, Photo
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm
+from .forms import ContactForm
+
 # Create your views here.
 
 
@@ -41,6 +45,32 @@ def registerUser(request):
 
     context = {'form': form, 'page': page}
     return render(request, 'photos/login_register.html', context)
+
+
+def contact(request):
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        
+
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            content = form.cleaned_data['content']
+
+            html = render_to_string('photos/emails/contactform.html', {
+                'name': name,
+                'email': email,
+                'content': content
+            })
+
+            send_mail('The contact form subject', 'This is the message', 'noreplysteven.com', {'lesteven303@gmail.com'}, html_message=html)
+            return redirect('login')
+    else:
+        form = ContactForm()
+
+    return render(request, 'photos/contact.html',{
+        'form': form
+    })
 
 @login_required(login_url='login')
 def gallery(request):

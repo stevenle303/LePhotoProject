@@ -1,6 +1,7 @@
 from django.forms import ModelForm
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
+from django import forms
 
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
@@ -12,3 +13,9 @@ class CustomUserCreationForm(UserCreationForm):
         self.fields['username'].widget.attrs.update({'class': 'form-control', 'placeholder':'Enter Username'})
         self.fields['password1'].widget.attrs.update({'class': 'form-control','placeholder':'Enter Password'})
         self.fields['password2'].widget.attrs.update({'class': 'form-control', 'placeholder':'Confrim Password'})
+
+
+class ContactForm(forms.Form):
+    name = forms.CharField(max_length=255)
+    email = forms.EmailField()
+    content = forms.CharField(widget=forms.Textarea)
