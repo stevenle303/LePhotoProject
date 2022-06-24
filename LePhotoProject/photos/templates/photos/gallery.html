@@ -28,30 +28,32 @@
             margin-left: 50px;
             color: white;
         }
+
+
     </style>
 
 </head>
 
 <body>
-        <!-- Start of the header -->
-        <header>
-            <div class="header">
-                <div class="innerHeader">
-                    <div class="logoContainer">
-                        <div>
-                            <h1>Steven Le</h1>
-                        </div>
+    <!-- Start of the header -->
+    <header>
+        <div class="header">
+            <div class="innerHeader">
+                <div class="logoContainer">
+                    <div>
+                        <h1>Steven Le</h1>
                     </div>
-
-                    <ul class="navigation">
-                        <li><a href="{% url 'gallery' %}">Home</a></li>
-                        <li><a href="">Blog</a></li>
-                        <li><a href="">Contact</a></li>
-
-                    </ul>
                 </div>
+
+                <ul class="navigation">
+                    <li><a href="{% url 'gallery' %}">Home</a></li>
+                    <li><a href="">Blog</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+
+                </ul>
             </div>
-        </header>
+        </div>
+    </header>
 
     <div class="pic">
 
@@ -89,18 +91,13 @@
 
                             </li>
                             {% endfor %}
-
-
+                            
                             <li class="list-group-item">
-                                <a href="{% url 'add' %}" class="btn btn-outline-info btn-sm" m1>Add Photos</a>
-                                <a href="{% url 'logout' %}" class="btn btn-outline-info btn-sm" m1>Logout</a>
-                                <a href="{% url 'register' %}" class="btn btn-outline-info btn-sm" m1>Register</a>
+                                <a href="{% url 'add' %}" class="btn btn-outline-info btn-sm-1">Add Photos</a>
+                                <a href="{% url 'logout' %}" class="btn btn-outline-info btn-sm-3">Logout</a>
                             </li>
+                            
                         </ul>
-                        <div class="card-body">
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
-                        </div>
                     </div>
                 </div>
 

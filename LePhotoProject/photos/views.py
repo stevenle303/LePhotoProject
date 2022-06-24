@@ -1,4 +1,3 @@
-
 from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
@@ -7,9 +6,13 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm
 from .forms import ContactForm
+from django.contrib import messages
 
 # Create your views here.
 
+def home(request):
+    return render(request, 'photos/home.html')
+    
 
 def loginUser(request):
     page = 'login'
@@ -22,7 +25,14 @@ def loginUser(request):
         if user is not None:
             login(request, user)
             return redirect('gallery')
+        else:
+            messages.error(request,'username or password not correct')
+            return redirect('login')
+
     return render(request, 'photos/login_register.html', {'page': page})
+
+  
+
 
 def logoutUser(request):
     logout(request)
