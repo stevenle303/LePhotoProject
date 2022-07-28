@@ -23,12 +23,19 @@
             text-decoration: none;
             color: black;
         }
+        .list-group-item a:hover {
+            color: #4169e1;
+       
+        }
 
         .row h3 {
             margin-left: 50px;
             color: white;
         }
 
+        .navigation a:hover {
+            color: #a4dded;
+        }
 
     </style>
 
@@ -41,7 +48,7 @@
             <div class="innerHeader">
                 <div class="logoContainer">
                     <div>
-                        <h1>Steven Le</h1>
+                        <h1>A Pic Of Life</h1>
                     </div>
                 </div>
 
@@ -93,10 +100,12 @@
                             {% endfor %}
                             
                             <li class="list-group-item">
-                                <a href="{% url 'add' %}" class="btn btn-outline-info btn-sm-1">Add Photos</a>
-                                <a href="{% url 'logout' %}" class="btn btn-outline-info btn-sm-3">Logout</a>
+                                <a href="{% url 'add' %}" class="btn btn-outline-info btn-sm mx-4 my-2 p-2">Add Photos</a>
+                                
+                                
+                                <a href="{% url 'logout' %}" class="btn btn-outline-danger btn-sm mx-4 my-2 p-2">Logout</a>
+                                
                             </li>
-                            
                         </ul>
                     </div>
                 </div>
@@ -117,7 +126,7 @@
                                         {% csrf_token %}
                                         <div class="text-center">
                                             <a href="{% url 'photo' photo.id %}"
-                                                class="btn btn-outline-dark btn-sm m-1">View</a>
+                                                class="btn btn-outline-secondary btn-sm m-1">View</a>
                                             OR
                                             <button type="submit" class='btn btn-outline-danger btn-sm m-1'
                                                 onclick="return confirm('Are you sure you want to delete the photo?');">DEL</button>

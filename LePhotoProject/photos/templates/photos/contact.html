@@ -9,14 +9,21 @@
 </head>
 
 <body>
-    <h1>Contact</h1>
+    <div style="text-align:center; margin: 25px;">
+        <h1>Contact</h1>
 
-    <form method="post" action=".">
-        {% csrf_token %} 
-        
-        {{ form.as_p }} 
-        <button>Submit</button>
-    </forms>
+        <form method="post" action=".">
+            {% csrf_token %}
+
+
+            <h4>{{ form.as_p }} </h4>
+
+
+            <button class="btn btn-outline-primary mb-3">Submit</button>
+
+        </form>
+
+    </div>
 </body>
 
 </html>

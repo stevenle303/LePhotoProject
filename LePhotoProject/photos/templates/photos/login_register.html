@@ -97,13 +97,13 @@
 
                                             <label class="form-label" for="form2Example11">Username</label>
                                             <input type="text" id="form2Example11" class="form-control" name="username"
-                                                placeholder="Username" />
+                                                placeholder="Username">
                                         </div>
 
                                         <div class="form-outline mb-4">
                                             <label class="form-label" for="form2Example22">Password</label>
                                             <input type="password" id="form2Example22" class="form-control"
-                                                name="password">
+                                                name="password" placeholder="Password">
                                         </div>
 
                                         <div class="text-center pt-1 mb-5 pb-1">
@@ -120,6 +120,12 @@
                                     </form>
 
                                     {% else %}
+                                    {% for message in messages %}
+                                    <div class="alert alert-success">
+                                        <a class="close" href="#" data-dismiss="alert">×</a>
+                                        {{ message }}
+                                    </div>
+                                    {% endfor %}
                                     <form method="post">
                                         <h3>Register</h3>
                                         {% csrf_token %}

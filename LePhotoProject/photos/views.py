@@ -52,6 +52,9 @@ def registerUser(request):
             if user is not None:
                 login(request, user)
                 return redirect('gallery')
+        else:
+            messages.error(request,'Please make a stronger password!!')
+            return redirect('register')
 
     context = {'form': form, 'page': page}
     return render(request, 'photos/login_register.html', context)
@@ -74,7 +77,7 @@ def contact(request):
             })
 
             send_mail('The contact form subject', 'This is the message', 'noreplysteven.com', {'lesteven303@gmail.com'}, html_message=html)
-            return redirect('login')
+            return redirect('home')
     else:
         form = ContactForm()
 
@@ -138,7 +141,7 @@ def deletePhoto(request,pk):
     if request.method=='POST':
         photo = Photo.objects.get(id=pk)
         photo.delete()
-        return redirect('/')
+        return redirect('gallery')
 
 
 
