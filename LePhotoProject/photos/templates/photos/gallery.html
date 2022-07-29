@@ -53,8 +53,8 @@
                 </div>
 
                 <ul class="navigation">
-                    <li><a href="{% url 'gallery' %}">Home</a></li>
-                    <li><a href="">Blog</a></li>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'register' %}">Register</a></li>
                     <li><a href="{% url 'contact' %}">Contact</a></li>
 
                 </ul>
@@ -120,6 +120,7 @@
 
                                 <div class="card-body">
                                     <div class="text-center">
+                                        <medium><strong>Title: {{photo.title}}</medium></strong><br>
                                         <medium><strong>Category: {{photo.category.name}}</medium></strong>
                                     </div>
                                     <form class='deleteForm' method='POST' action='/delete/{{photo.id}}'>
