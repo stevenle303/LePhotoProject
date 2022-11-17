@@ -9,6 +9,7 @@
     <script src="https://use.fontawesome.com/d1341f9b7a.js"></script>
     <link rel="stylesheet" href="{% static 'css/main.css' %}">
 
+
     <title>Gallery</title>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -33,42 +34,30 @@
             color: white;
         }
 
-        .navigation a:hover {
-            color: #a4dded;
-        }
-
     </style>
 
 </head>
+<!-- Start of the header -->
+<header>
 
-<body>
-    <!-- Start of the header -->
-    <header>
-        <div class="header">
-            <div class="innerHeader">
-                <div class="logoContainer">
-                    <div>
-                        <h1>A Pic Of Life</h1>
-                    </div>
-                </div>
-
-                <ul class="navigation">
-                    <li><a href="{% url 'home' %}">Home</a></li>
-                    <li><a href="{% url 'register' %}">Register</a></li>
-                    <li><a href="{% url 'contact' %}">Contact</a></li>
-
-                </ul>
-            </div>
+    <div class="header">
+        <a href="{% url 'gallery' %}" class="logo">Pic Of Life</a>
+        <div class="header-right">
+          <a href="{% url 'register' %}">Register</a>
+          <a href="{% url 'contact' %}">Contact</a>
         </div>
-    </header>
+      </div>
+</header>
+<body>
+
 
     <div class="pic">
 
-
         <div class="container">
+            
             <div class="row">
                 {% if request.user.is_authenticated %}
-                <h3>Hello, {{request.user}}</h3>
+                <h3>Welcome, {{request.user}}</h3>
                 {% endif %}
                 <div class="col-md-3">
 
@@ -78,9 +67,10 @@
                             alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">About:</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of
-                                the card's content.</p>
+                            <p class="card-text">Hi, welcome to Pic Of Life. I created this website to create memories to share with firends
+                                or for personal use. They say that a picture is worth a million words, and I believe
+                                that statement is 100% true. Create memories and upload them to Pic Of Life! :)
+                            </p>
                         </div>
 
                         <div class="card-header">
