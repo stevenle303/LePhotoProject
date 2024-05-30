@@ -8,9 +8,9 @@ What features does PicOfLife have?
 
 Users can register for an account, filter through images, add different categories, and the most important feature is looking back on the memories.
 
-What tech stack does it use?
+How was PicOfLife Built?
 
-Python, Django Framework, Cloudinary
+Python, HTML, CSS, JS, Django Framework, Cloudinary
 
 
 
